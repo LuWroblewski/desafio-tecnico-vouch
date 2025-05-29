@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import confetti from 'canvas-confetti';
+import Link from 'next/link';
 
 export default function CountdownTimer() {
   const [seconds, setSeconds] = useState(10);
@@ -57,7 +58,9 @@ export default function CountdownTimer() {
       {ended && (
         <div className='flex flex-col items-center justify-center space-y-5 z-10'>
           <p className='text-red-500 font-semibold text-lg'>Tempo encerrado, acesse aqui 👇🏻 </p>
-          <button className='btn btn-primary z-50 relative'>Primary</button>
+          <Link href='/toDoList'>
+            <button className='btn btn-primary z-50 relative'>Entrar </button>
+          </Link>
         </div>
       )}
     </div>
