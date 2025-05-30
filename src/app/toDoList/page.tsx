@@ -1,10 +1,9 @@
-import Countdown from '@/components/main-page/countdown/countdown';
-import Title from '@/components/main-page/title/title';
+import TodoPage from '@/components/todo-page/todo';
 
 export default function Home() {
   return (
-    <main className='h-screen'>
-      <p> de fato e 1 pagina de todo </p>
+    <main className='p-20 justify-center items-center min-h-screen  max-h-auto w-full'>
+      <TodoPage />
     </main>
   );
 }
