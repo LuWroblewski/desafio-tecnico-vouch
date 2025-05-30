@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { LuAlignJustify, LuLanguages, LuSearch } from 'react-icons/lu';
 
 export default function Navbar() {
@@ -9,9 +10,12 @@ export default function Navbar() {
             <LuAlignJustify />
           </div>
           <ul tabIndex={0} className='menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow'>
-            <li>
-              <a>Menu</a>
-            </li>
+            <Link href='/'>
+              <li>
+                <p>Menu</p>
+              </li>
+            </Link>
+
             <li>
               <a>Sobre Nós</a>
             </li>
@@ -20,13 +24,18 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        <a className='btn btn-ghost text-3xl tracking-widest'>LOGO</a>
+        <Link href='/'>
+          <p className='btn btn-ghost text-3xl tracking-widest'>LOGO</p>
+        </Link>
       </div>
       <div className='navbar-center hidden lg:flex'>
         <ul className='menu menu-horizontal px-1 flex justify-center items-center'>
-          <li>
-            <a>Menu</a>
-          </li>
+          <Link href='/'>
+            <li>
+              <p>Menu</p>
+            </li>
+          </Link>
+
           <li>
             <a>Sobre Nós</a>
           </li>
