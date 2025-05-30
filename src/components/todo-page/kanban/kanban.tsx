@@ -1,7 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { DndContext, DragEndEvent } from '@dnd-kit/core';
+
+import {
+  DndContext,
+  DragEndEvent,
+  DragStartEvent,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+
 import DraggableItem from './draggable';
 import DroppableColumn from './droppable';
 import { v4 as uuidv4 } from 'uuid';
@@ -29,6 +39,7 @@ export default function Appdnd({
   });
 
   const [processed, setProcessed] = useState<string[]>([]);
+  const [activeId, setActiveId] = useState<string | null>(null);
 
   useEffect(() => {
     const stored = localStorage.getItem('kanban-items');
@@ -125,8 +136,21 @@ export default function Appdnd({
     return null;
   };
 
+  const handleDragStart = (event: DragStartEvent) => {
+    setActiveId(String(event.active.id));
+  };
+
+  const sensors = useSensors(
+    useSensor(MouseSensor),
+    useSensor(TouchSensor, {
+      activationConstraint: {
+        distance: 5,
+      },
+    }),
+  );
+
   return (
-    <DndContext onDragEnd={handleDragEnd}>
+    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd} sensors={sensors}>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-8'>
         {(['todo', 'doing', 'done'] as ColumnType[]).map((columnId) => (
           <DroppableColumn key={columnId} id={columnId} title={columnId.toUpperCase()} bg='bg-info-content'>
