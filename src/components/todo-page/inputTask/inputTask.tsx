@@ -24,7 +24,7 @@ export default function InputTask({
 
   return (
     <div className='flex justify-center w-full items-center '>
-      <fieldset className='fieldset  w-5/12 space-y-2'>
+      <fieldset className='fieldset w-full md:w-5/12 space-y-2'>
         <legend className='fieldset-legend text-xl'>Adicione uma nova tarefa ao seu quadro</legend>
         <input
           type='text'
