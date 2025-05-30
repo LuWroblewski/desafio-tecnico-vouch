@@ -44,9 +44,9 @@ export default function CountdownTimer() {
 
   return (
     <div className='flex flex-col items-center space-y-4 mt-10'>
-      <div className='grid grid-flow-col gap-5 text-center auto-cols-max'>
-        <div className='flex flex-col items-center justify-center space-y-5'>
-          <h2 className='text-2xl'>
+      <div className='grid grid-flow-col gap-5 text-center'>
+        <div className='flex flex-col items-center justify-center space-y-5 '>
+          <h2 className='text-2xl '>
             Logo será liberado seu acesso ao sistema de <b>To Do List</b>.
           </h2>
           <span className='countdown font-mono text-6xl'>
