@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import DraggableItem from './draggable';
 import DroppableColumn from './droppable';
+import { v4 as uuidv4 } from 'uuid';
 
 type ColumnType = 'todo' | 'doing' | 'done';
 
@@ -53,7 +54,7 @@ export default function Appdnd({
     const newItems = items
       .filter((content) => !existingContents.has(content))
       .map((content) => ({
-        id: crypto.randomUUID(),
+        id: uuidv4(),
         content,
         createdAt: new Date().toISOString(),
         column: 'todo' as ColumnType,
